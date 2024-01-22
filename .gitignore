@@ -1,0 +1,6 @@
+**/Videos
+**/venv
+**/__pycache__
+**/Datasets
+**/.vscode
+**/saved_models
