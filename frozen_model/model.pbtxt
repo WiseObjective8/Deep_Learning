@@ -1,0 +1,911 @@
+node {
+  name: "flatten_input"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: -1
+        }
+        dim {
+          size: 28
+        }
+        dim {
+          size: 28
+        }
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "flatten_input"
+    }
+  }
+}
+node {
+  name: "unknown"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        unknown_rank: true
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_RESOURCE
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "889667"
+    }
+  }
+}
+node {
+  name: "unknown_0"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        unknown_rank: true
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_RESOURCE
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "889669"
+    }
+  }
+}
+node {
+  name: "unknown_1"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        unknown_rank: true
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_RESOURCE
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "889671"
+    }
+  }
+}
+node {
+  name: "unknown_2"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        unknown_rank: true
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_RESOURCE
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "889673"
+    }
+  }
+}
+node {
+  name: "unknown_3"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        unknown_rank: true
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_RESOURCE
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "889675"
+    }
+  }
+}
+node {
+  name: "unknown_4"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        unknown_rank: true
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_RESOURCE
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "889677"
+    }
+  }
+}
+node {
+  name: "unknown_5"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        unknown_rank: true
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_RESOURCE
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "889679"
+    }
+  }
+}
+node {
+  name: "unknown_6"
+  op: "Placeholder"
+  attr {
+    key: "shape"
+    value {
+      shape {
+        unknown_rank: true
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_RESOURCE
+    }
+  }
+  attr {
+    key: "_user_specified_name"
+    value {
+      s: "889681"
+    }
+  }
+}
+node {
+  name: "StatefulPartitionedCall"
+  op: "StatefulPartitionedCall"
+  input: "flatten_input"
+  input: "unknown"
+  input: "unknown_0"
+  input: "unknown_1"
+  input: "unknown_2"
+  input: "unknown_3"
+  input: "unknown_4"
+  input: "unknown_5"
+  input: "unknown_6"
+  attr {
+    key: "f"
+    value {
+      func {
+        name: "__inference__wrapped_model_890554"
+      }
+    }
+  }
+  attr {
+    key: "executor_type"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "config"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "config_proto"
+    value {
+      s: "\n\007\n\003CPU\020\001\n\007\n\003GPU\020\0002\002J\0008\001\202\001\000"
+    }
+  }
+  attr {
+    key: "_read_only_resource_inputs"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 3
+        i: 4
+        i: 5
+        i: 6
+        i: 7
+        i: 8
+      }
+    }
+  }
+  attr {
+    key: "_collective_manager_ids"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "Tout"
+    value {
+      list {
+        type: DT_FLOAT
+      }
+    }
+  }
+  attr {
+    key: "Tin"
+    value {
+      list {
+        type: DT_FLOAT
+        type: DT_RESOURCE
+        type: DT_RESOURCE
+        type: DT_RESOURCE
+        type: DT_RESOURCE
+        type: DT_RESOURCE
+        type: DT_RESOURCE
+        type: DT_RESOURCE
+        type: DT_RESOURCE
+      }
+    }
+  }
+}
+node {
+  name: "NoOp"
+  op: "NoOp"
+  input: "^StatefulPartitionedCall"
+}
+node {
+  name: "Identity"
+  op: "Identity"
+  input: "StatefulPartitionedCall"
+  input: "^NoOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+versions {
+  producer: 1645
+  min_consumer: 12
+}
+library {
+  function {
+    signature {
+      name: "__inference__wrapped_model_890554"
+      input_arg {
+        name: "flatten_input"
+        type: DT_FLOAT
+      }
+      input_arg {
+        name: "sequential_dense_matmul_readvariableop_resource"
+        type: DT_RESOURCE
+      }
+      input_arg {
+        name: "sequential_dense_biasadd_readvariableop_resource"
+        type: DT_RESOURCE
+      }
+      input_arg {
+        name: "sequential_dense_1_matmul_readvariableop_resource"
+        type: DT_RESOURCE
+      }
+      input_arg {
+        name: "sequential_dense_1_biasadd_readvariableop_resource"
+        type: DT_RESOURCE
+      }
+      input_arg {
+        name: "sequential_dense_2_matmul_readvariableop_resource"
+        type: DT_RESOURCE
+      }
+      input_arg {
+        name: "sequential_dense_2_biasadd_readvariableop_resource"
+        type: DT_RESOURCE
+      }
+      input_arg {
+        name: "sequential_dense_3_matmul_readvariableop_resource"
+        type: DT_RESOURCE
+      }
+      input_arg {
+        name: "sequential_dense_3_biasadd_readvariableop_resource"
+        type: DT_RESOURCE
+      }
+      output_arg {
+        name: "identity"
+        type: DT_FLOAT
+      }
+      control_output: "sequential/dense/BiasAdd/ReadVariableOp"
+      control_output: "sequential/dense/MatMul/ReadVariableOp"
+      control_output: "sequential/dense_1/BiasAdd/ReadVariableOp"
+      control_output: "sequential/dense_1/MatMul/ReadVariableOp"
+      control_output: "sequential/dense_2/BiasAdd/ReadVariableOp"
+      control_output: "sequential/dense_2/MatMul/ReadVariableOp"
+      control_output: "sequential/dense_3/BiasAdd/ReadVariableOp"
+      control_output: "sequential/dense_3/MatMul/ReadVariableOp"
+      is_stateful: true
+    }
+    attr {
+      key: "_construction_context"
+      value {
+        s: "kEagerRuntime"
+      }
+    }
+    arg_attr {
+      key: 0
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "flatten_input"
+          }
+        }
+        attr {
+          key: "_output_shapes"
+          value {
+            list {
+              shape {
+                dim {
+                  size: -1
+                }
+                dim {
+                  size: 28
+                }
+                dim {
+                  size: 28
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    arg_attr {
+      key: 1
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "resource"
+          }
+        }
+      }
+    }
+    arg_attr {
+      key: 2
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "resource"
+          }
+        }
+      }
+    }
+    arg_attr {
+      key: 3
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "resource"
+          }
+        }
+      }
+    }
+    arg_attr {
+      key: 4
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "resource"
+          }
+        }
+      }
+    }
+    arg_attr {
+      key: 5
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "resource"
+          }
+        }
+      }
+    }
+    arg_attr {
+      key: 6
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "resource"
+          }
+        }
+      }
+    }
+    arg_attr {
+      key: 7
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "resource"
+          }
+        }
+      }
+    }
+    arg_attr {
+      key: 8
+      value {
+        attr {
+          key: "_user_specified_name"
+          value {
+            s: "resource"
+          }
+        }
+      }
+    }
+    node_def {
+      name: "sequential/flatten/Const"
+      op: "Const"
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\377\377\377\377\020\003\000\000"
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node_def {
+      name: "sequential/flatten/Reshape"
+      op: "Reshape"
+      input: "flatten_input"
+      input: "sequential/flatten/Const:output:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense/MatMul/ReadVariableOp"
+      op: "ReadVariableOp"
+      input: "sequential_dense_matmul_readvariableop_resource"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense/MatMul"
+      op: "MatMul"
+      input: "sequential/flatten/Reshape:output:0"
+      input: "sequential/dense/MatMul/ReadVariableOp:value:0"
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense/BiasAdd/ReadVariableOp"
+      op: "ReadVariableOp"
+      input: "sequential_dense_biasadd_readvariableop_resource"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense/BiasAdd"
+      op: "BiasAdd"
+      input: "sequential/dense/MatMul:product:0"
+      input: "sequential/dense/BiasAdd/ReadVariableOp:value:0"
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense/Relu"
+      op: "Relu"
+      input: "sequential/dense/BiasAdd:output:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_1/MatMul/ReadVariableOp"
+      op: "ReadVariableOp"
+      input: "sequential_dense_1_matmul_readvariableop_resource"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_1/MatMul"
+      op: "MatMul"
+      input: "sequential/dense/Relu:activations:0"
+      input: "sequential/dense_1/MatMul/ReadVariableOp:value:0"
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_1/BiasAdd/ReadVariableOp"
+      op: "ReadVariableOp"
+      input: "sequential_dense_1_biasadd_readvariableop_resource"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_1/BiasAdd"
+      op: "BiasAdd"
+      input: "sequential/dense_1/MatMul:product:0"
+      input: "sequential/dense_1/BiasAdd/ReadVariableOp:value:0"
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_1/Relu"
+      op: "Relu"
+      input: "sequential/dense_1/BiasAdd:output:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_2/MatMul/ReadVariableOp"
+      op: "ReadVariableOp"
+      input: "sequential_dense_2_matmul_readvariableop_resource"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_2/MatMul"
+      op: "MatMul"
+      input: "sequential/dense_1/Relu:activations:0"
+      input: "sequential/dense_2/MatMul/ReadVariableOp:value:0"
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_2/BiasAdd/ReadVariableOp"
+      op: "ReadVariableOp"
+      input: "sequential_dense_2_biasadd_readvariableop_resource"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_2/BiasAdd"
+      op: "BiasAdd"
+      input: "sequential/dense_2/MatMul:product:0"
+      input: "sequential/dense_2/BiasAdd/ReadVariableOp:value:0"
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_2/Relu"
+      op: "Relu"
+      input: "sequential/dense_2/BiasAdd:output:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_3/MatMul/ReadVariableOp"
+      op: "ReadVariableOp"
+      input: "sequential_dense_3_matmul_readvariableop_resource"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_3/MatMul"
+      op: "MatMul"
+      input: "sequential/dense_2/Relu:activations:0"
+      input: "sequential/dense_3/MatMul/ReadVariableOp:value:0"
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_3/BiasAdd/ReadVariableOp"
+      op: "ReadVariableOp"
+      input: "sequential_dense_3_biasadd_readvariableop_resource"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_3/BiasAdd"
+      op: "BiasAdd"
+      input: "sequential/dense_3/MatMul:product:0"
+      input: "sequential/dense_3/BiasAdd/ReadVariableOp:value:0"
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "sequential/dense_3/Softmax"
+      op: "Softmax"
+      input: "sequential/dense_3/BiasAdd:output:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node_def {
+      name: "NoOp"
+      op: "NoOp"
+      input: "^sequential/dense/BiasAdd/ReadVariableOp"
+      input: "^sequential/dense/MatMul/ReadVariableOp"
+      input: "^sequential/dense_1/BiasAdd/ReadVariableOp"
+      input: "^sequential/dense_1/MatMul/ReadVariableOp"
+      input: "^sequential/dense_2/BiasAdd/ReadVariableOp"
+      input: "^sequential/dense_2/MatMul/ReadVariableOp"
+      input: "^sequential/dense_3/BiasAdd/ReadVariableOp"
+      input: "^sequential/dense_3/MatMul/ReadVariableOp"
+    }
+    node_def {
+      name: "Identity"
+      op: "Identity"
+      input: "sequential/dense_3/Softmax:softmax:0"
+      input: "^NoOp"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    ret {
+      key: "identity"
+      value: "Identity:output:0"
+    }
+    control_ret {
+      key: "sequential/dense_3/MatMul/ReadVariableOp"
+      value: "sequential/dense_3/MatMul/ReadVariableOp"
+    }
+    control_ret {
+      key: "sequential/dense_3/BiasAdd/ReadVariableOp"
+      value: "sequential/dense_3/BiasAdd/ReadVariableOp"
+    }
+    control_ret {
+      key: "sequential/dense_2/MatMul/ReadVariableOp"
+      value: "sequential/dense_2/MatMul/ReadVariableOp"
+    }
+    control_ret {
+      key: "sequential/dense_2/BiasAdd/ReadVariableOp"
+      value: "sequential/dense_2/BiasAdd/ReadVariableOp"
+    }
+    control_ret {
+      key: "sequential/dense_1/MatMul/ReadVariableOp"
+      value: "sequential/dense_1/MatMul/ReadVariableOp"
+    }
+    control_ret {
+      key: "sequential/dense_1/BiasAdd/ReadVariableOp"
+      value: "sequential/dense_1/BiasAdd/ReadVariableOp"
+    }
+    control_ret {
+      key: "sequential/dense/MatMul/ReadVariableOp"
+      value: "sequential/dense/MatMul/ReadVariableOp"
+    }
+    control_ret {
+      key: "sequential/dense/BiasAdd/ReadVariableOp"
+      value: "sequential/dense/BiasAdd/ReadVariableOp"
+    }
+  }
+}
